@@ -14,6 +14,7 @@
 		E312D78E2290C14A00C6FB0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E312D78C2290C14A00C6FB0B /* Main.storyboard */; };
 		E312D7902290C14B00C6FB0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E312D78F2290C14B00C6FB0B /* Assets.xcassets */; };
 		E312D7932290C14B00C6FB0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E312D7912290C14B00C6FB0B /* LaunchScreen.storyboard */; };
+		E312D79B2290CA7200C6FB0B /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D79A2290CA7200C6FB0B /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E312D78F2290C14B00C6FB0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E312D7922290C14B00C6FB0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E312D7942290C14B00C6FB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E312D79A2290CA7200C6FB0B /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				E312D7912290C14B00C6FB0B /* LaunchScreen.storyboard */,
 				E312D7942290C14B00C6FB0B /* Info.plist */,
 				E312D7852290C14A00C6FB0B /* A_Decade_of_Movies.xcdatamodeld */,
+				E312D79A2290CA7200C6FB0B /* MovieTableViewCell.swift */,
 			);
 			path = "A Decade of Movies";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E312D79B2290CA7200C6FB0B /* MovieTableViewCell.swift in Sources */,
 				E312D7842290C14A00C6FB0B /* AppDelegate.swift in Sources */,
 				E312D7872290C14A00C6FB0B /* A_Decade_of_Movies.xcdatamodeld in Sources */,
 				E312D7892290C14A00C6FB0B /* MasterViewController.swift in Sources */,
