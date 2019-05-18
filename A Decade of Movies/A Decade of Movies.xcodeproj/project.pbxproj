@@ -18,6 +18,7 @@
 		E312D79D2290CC5200C6FB0B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D79C2290CC5200C6FB0B /* CoreDataStack.swift */; };
 		E312D7A02290CDCB00C6FB0B /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D79E2290CDCB00C6FB0B /* Movie+CoreDataClass.swift */; };
 		E312D7A12290CDCB00C6FB0B /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D79F2290CDCB00C6FB0B /* Movie+CoreDataProperties.swift */; };
+		E312D7A32290CED200C6FB0B /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D7A22290CED200C6FB0B /* Movies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E312D79C2290CC5200C6FB0B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E312D79E2290CDCB00C6FB0B /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E312D79F2290CDCB00C6FB0B /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E312D7A22290CED200C6FB0B /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		E312D7772290C14900C6FB0B = {
 			isa = PBXGroup;
 			children = (
+				E312D7A22290CED200C6FB0B /* Movies.swift */,
 				E312D79E2290CDCB00C6FB0B /* Movie+CoreDataClass.swift */,
 				E312D79F2290CDCB00C6FB0B /* Movie+CoreDataProperties.swift */,
 				E312D7822290C14900C6FB0B /* A Decade of Movies */,
@@ -158,6 +161,7 @@
 				E312D7842290C14A00C6FB0B /* AppDelegate.swift in Sources */,
 				E312D7872290C14A00C6FB0B /* A_Decade_of_Movies.xcdatamodeld in Sources */,
 				E312D7A12290CDCB00C6FB0B /* Movie+CoreDataProperties.swift in Sources */,
+				E312D7A32290CED200C6FB0B /* Movies.swift in Sources */,
 				E312D79D2290CC5200C6FB0B /* CoreDataStack.swift in Sources */,
 				E312D7892290C14A00C6FB0B /* MasterViewController.swift in Sources */,
 				E312D78B2290C14A00C6FB0B /* DetailViewController.swift in Sources */,

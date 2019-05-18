@@ -11,19 +11,32 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    var detailViewController: DetailViewController? = nil
-    var managedObjectContext: NSManagedObjectContext? = nil
-
+    fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Movie> = {
+        let fetchRequest: NSFetchRequest<Movie> = Movie.fetchRequest()
+        // Configure Fetch Request
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false), NSSortDescriptor(key: "rating", ascending: false)]
+        // Create Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.sharedInstance.persistentContainer.viewContext, sectionNameKeyPath: "year", cacheName: nil)
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
+    let searchController = UISearchController(searchResultsController: nil)
+    var isFiltering = false
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        setSearchController()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
+    func setSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Movie"
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
-
     // MARK: - Table View
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,43 +53,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let movie = fetchedResultsController.object(at: indexPath)
         return cell
     }
-
-    // MARK: - Fetched results controller
-//
-//    var fetchedResultsController: NSFetchedResultsController<Event> {
-//        if _fetchedResultsController != nil {
-//            return _fetchedResultsController!
-//        }
-//
-//        let fetchRequest: NSFetchRequest<Event> = Event.fetchRequest()
-//
-//        // Set the batch size to a suitable number.
-//        fetchRequest.fetchBatchSize = 20
-//
-//        // Edit the sort key as appropriate.
-//        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-//
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//
-//        // Edit the section name key path and cache name if appropriate.
-//        // nil for section name key path means "no sections".
-//        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
-//        aFetchedResultsController.delegate = self
-//        _fetchedResultsController = aFetchedResultsController
-//
-//        do {
-//            try _fetchedResultsController!.performFetch()
-//        } catch {
-//             // Replace this implementation with code to handle the error appropriately.
-//             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//             let nserror = error as NSError
-//             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//        }
-//
-//        return _fetchedResultsController!
-//    }
-//    var _fetchedResultsController: NSFetchedResultsController<Event>? = nil
-//
-
 }
 
+extension MasterViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isFiltering = false
+//        fetchMovies()
+    }
+}
