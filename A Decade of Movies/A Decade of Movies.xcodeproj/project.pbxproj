@@ -19,6 +19,7 @@
 		E312D7A02290CDCB00C6FB0B /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D79E2290CDCB00C6FB0B /* Movie+CoreDataClass.swift */; };
 		E312D7A12290CDCB00C6FB0B /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D79F2290CDCB00C6FB0B /* Movie+CoreDataProperties.swift */; };
 		E312D7A32290CED200C6FB0B /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D7A22290CED200C6FB0B /* Movies.swift */; };
+		E312D7A52290D0E200C6FB0B /* MoviesTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E312D7A42290D0E200C6FB0B /* MoviesTableViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E312D79E2290CDCB00C6FB0B /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E312D79F2290CDCB00C6FB0B /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E312D7A22290CED200C6FB0B /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		E312D7A42290D0E200C6FB0B /* MoviesTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				E312D7852290C14A00C6FB0B /* A_Decade_of_Movies.xcdatamodeld */,
 				E312D79A2290CA7200C6FB0B /* MovieTableViewCell.swift */,
 				E312D79C2290CC5200C6FB0B /* CoreDataStack.swift */,
+				E312D7A42290D0E200C6FB0B /* MoviesTableViewModel.swift */,
 			);
 			path = "A Decade of Movies";
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				E312D79B2290CA7200C6FB0B /* MovieTableViewCell.swift in Sources */,
 				E312D7842290C14A00C6FB0B /* AppDelegate.swift in Sources */,
 				E312D7872290C14A00C6FB0B /* A_Decade_of_Movies.xcdatamodeld in Sources */,
+				E312D7A52290D0E200C6FB0B /* MoviesTableViewModel.swift in Sources */,
 				E312D7A12290CDCB00C6FB0B /* Movie+CoreDataProperties.swift in Sources */,
 				E312D7A32290CED200C6FB0B /* Movies.swift in Sources */,
 				E312D79D2290CC5200C6FB0B /* CoreDataStack.swift in Sources */,
