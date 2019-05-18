@@ -18,6 +18,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         setSearchController()
+        moviesTableViewModel.fetchMovies()
+        if moviesTableViewModel.entityIsEmpty() {
+            let  movies = moviesTableViewModel.loadJsonFile(fileName: "movies")
+            for movie in movies?.movies ?? [] {
+                moviesTableViewModel.save(savedMovie: movie)
+            }
+            moviesTableViewModel.fetchMovies()
+        }
     }
 
     func setSearchController() {
@@ -49,13 +57,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 extension MasterViewController: UISearchBarDelegate, UISearchResultsUpdating {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isFiltering = false
-//        fetchMovies()
+        moviesTableViewModel.fetchMovies()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchtext = searchController.searchBar.text, searchtext.count > 0 {
             isFiltering = true
-//            searchMovie(withName: searchtext)
+            moviesTableViewModel.searchMovie(withName: searchtext)
         }
     }
 }

@@ -70,4 +70,15 @@ struct MoviesTableViewModel {
             abort()
         }
     }
+    
+    mutating func fetchMovies(){
+        fetchedResultsController.fetchRequest.predicate = nil
+        do {
+            try fetchedResultsController.performFetch()
+//            tableView.reloadData()
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            abort()
+        }
+    }
 }
