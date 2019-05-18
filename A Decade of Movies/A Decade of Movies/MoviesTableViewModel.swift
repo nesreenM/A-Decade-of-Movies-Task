@@ -9,7 +9,14 @@
 import Foundation
 import CoreData
 
-class MoviesTableViewModel {
+struct MoviesTableViewModel {
+ 
+    lazy var fetchedResultsController: NSFetchedResultsController<Movie> = {
+        let fetchRequest: NSFetchRequest<Movie> = Movie.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false), NSSortDescriptor(key: "rating", ascending: false)]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.sharedInstance.persistentContainer.viewContext, sectionNameKeyPath: "year", cacheName: nil)
+        return fetchedResultsController
+    }()
     
     func loadJsonFile(fileName: String) -> Movies? {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
@@ -43,6 +50,24 @@ class MoviesTableViewModel {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
+        }
+    }
+    
+    mutating func entityIsEmpty() -> Bool {
+        if fetchedResultsController.fetchedObjects?.count == 0 {
+            return true
+        }
+        return false
+    }
+    
+    mutating func searchMovie(withName: String) {
+        fetchedResultsController.fetchRequest.predicate = NSPredicate(format:  "title MATCHES[cd] '(\(withName)).*'")
+        do {
+            try fetchedResultsController.performFetch()
+//            tableView.reloadData()
+        } catch let error as NSError {
+            print("Unresolved error \(error)")
+            abort()
         }
     }
 }
