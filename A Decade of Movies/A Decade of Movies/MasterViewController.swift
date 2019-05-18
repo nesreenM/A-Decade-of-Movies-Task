@@ -55,9 +55,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 }
 
-extension MasterViewController: UISearchBarDelegate {
+extension MasterViewController: UISearchBarDelegate, UISearchResultsUpdating {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isFiltering = false
 //        fetchMovies()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchtext = searchController.searchBar.text, searchtext.count > 0 {
+            isFiltering = true
+//            searchMovie(withName: searchtext)
+        }
     }
 }
