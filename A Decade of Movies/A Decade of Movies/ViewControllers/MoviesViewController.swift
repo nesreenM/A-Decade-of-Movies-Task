@@ -45,7 +45,11 @@ class MoviesViewController: UITableViewController, NSFetchedResultsControllerDel
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Movie"
         searchController.searchBar.delegate = self
-        navigationItem.searchController = searchController
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            // Fallback on earlier versions
+        }
         definesPresentationContext = true
     }
   
@@ -71,6 +75,14 @@ class MoviesViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return moviesTableViewModel.fetchedResultsController.sections?[section].name
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = moviesTableViewModel.fetchedResultsController.object(at: indexPath)
+        let movieDetailsViewModel = MovieDetailsViewModel(movie: movie)
+        let movieDetailsViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailsTableViewController") as! MovieDetailsTableViewController
+        movieDetailsViewController.movieDetailsViewModel = movieDetailsViewModel
+        self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }
 
