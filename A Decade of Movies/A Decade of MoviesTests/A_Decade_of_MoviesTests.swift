@@ -7,21 +7,50 @@
 //
 
 import XCTest
+import CoreData
+
 @testable import A_Decade_of_Movies
 
 class A_Decade_of_MoviesTests: XCTestCase {
-
+    
+    var movie: Movie!
+    var mockMovieDetailsViewModel: MovieDetailsViewModel!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let managedContext =
+            CoreDataStack.sharedInstance.persistentContainer.viewContext
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Movie",
+                                       in: managedContext)
+        if let entity = entity {
+            let movie = NSManagedObject(entity: entity,
+                                        insertInto: managedContext)
+            movie.setValue("Mock Movie", forKeyPath: "title")
+            movie.setValue(4.8, forKeyPath: "rating")
+            movie.setValue(2018, forKeyPath: "year")
+            movie.setValue(["Nesreen Mamdouh", "Tom Cruise"], forKey: "cast")
+            movie.setValue(["Action", "Drama"], forKey: "genres")
+            mockMovieDetailsViewModel = MovieDetailsViewModel(movie: movie as! Movie)
+        }
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        movie = nil
+        mockMovieDetailsViewModel = nil
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCastListing() {
+        let listedCast = mockMovieDetailsViewModel.listingCast()
+        var mockCast =  "\u{2022} Nesreen Mamdouh \n"
+        mockCast += "\u{2022} Tom Cruise \n"
+        XCTAssertEqual(listedCast, mockCast)
+    }
+    
+    func testGenreListing() {
+        let listedGenre = mockMovieDetailsViewModel.listingGenre()
+        var mockGenre =  "\u{2022} Action \n"
+        mockGenre += "\u{2022} Drama \n"
+        XCTAssertEqual(listedGenre, mockGenre)
     }
     
     func testLoadingJsonFile() {
