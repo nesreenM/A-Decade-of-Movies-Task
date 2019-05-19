@@ -22,6 +22,7 @@
 		E348C1182290D4D400DA60FF /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = E348C1172290D4D400DA60FF /* movies.json */; };
 		E348C1202290DDF300DA60FF /* MovieDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348C11F2290DDF300DA60FF /* MovieDetailsTableViewController.swift */; };
 		E348C1222290DE2C00DA60FF /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348C1212290DE2C00DA60FF /* MovieDetailsViewModel.swift */; };
+		E348C1242290E4E000DA60FF /* MoviePictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348C1232290E4E000DA60FF /* MoviePictureCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		E348C1172290D4D400DA60FF /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = movies.json; path = "../../../../Downloads/TestJsonFile-2/movies.json"; sourceTree = "<group>"; };
 		E348C11F2290DDF300DA60FF /* MovieDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTableViewController.swift; sourceTree = "<group>"; };
 		E348C1212290DE2C00DA60FF /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		E348C1232290E4E000DA60FF /* MoviePictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePictureCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				E312D79A2290CA7200C6FB0B /* MovieTableViewCell.swift */,
+				E348C1232290E4E000DA60FF /* MoviePictureCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				E312D7872290C14A00C6FB0B /* A_Decade_of_Movies.xcdatamodeld in Sources */,
 				E312D7A52290D0E200C6FB0B /* MoviesTableViewModel.swift in Sources */,
 				E348C1222290DE2C00DA60FF /* MovieDetailsViewModel.swift in Sources */,
+				E348C1242290E4E000DA60FF /* MoviePictureCollectionViewCell.swift in Sources */,
 				E312D7A12290CDCB00C6FB0B /* Movie+CoreDataProperties.swift in Sources */,
 				E312D7A32290CED200C6FB0B /* Movies.swift in Sources */,
 				E348C1202290DDF300DA60FF /* MovieDetailsTableViewController.swift in Sources */,

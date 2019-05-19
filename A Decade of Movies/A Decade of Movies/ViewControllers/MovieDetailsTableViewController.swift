@@ -14,7 +14,8 @@ class MovieDetailsTableViewController: UITableViewController {
     @IBOutlet weak var cast: UILabel!
     @IBOutlet weak var movieYear: UILabel!
     @IBOutlet weak var movieTitle: UILabel!
-   
+    @IBOutlet weak var picturesCollectionView: UICollectionView!
+    
     var movieDetailsViewModel: MovieDetailsViewModel!
     
     override func viewDidLoad() {
