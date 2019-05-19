@@ -39,7 +39,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table View
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return moviesTableViewModel.fetchedResultsController.sections?.count ?? 0
+        if isFiltering {
+            return moviesTableViewModel.fetchedResultsController.sections?[section].objects?.count ?? 0 <= 5 ? moviesTableViewModel.fetchedResultsController.sections?[section].objects?.count ?? 0 : 5
+        }
+        return moviesTableViewModel.fetchedResultsController.sections?[section].objects?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +56,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         cell.movieName.text = movie.title
         cell.movieRating.text = movie.rating.description
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return moviesTableViewModel.fetchedResultsController.sections?[section].name
     }
 }
 
