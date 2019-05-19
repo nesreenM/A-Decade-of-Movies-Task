@@ -59,6 +59,12 @@ class MovieDetailsTableViewController: UITableViewController {
             let photosCount = movieDetailsViewModel.flickrPhotos?.photos?.photo?.count ?? 0
             return CGFloat(100 * photosCount / 2 + 10 * photosCount / 2) + 20
         }
+        if indexPath.row == 1 && movieDetailsViewModel.listingCast() == "" {
+            return CGFloat.leastNormalMagnitude
+        }
+        if indexPath.row == 2 && movieDetailsViewModel.listingGenre() == "" {
+            return CGFloat.leastNormalMagnitude
+        }
         return UITableView.automaticDimension
     }
     
