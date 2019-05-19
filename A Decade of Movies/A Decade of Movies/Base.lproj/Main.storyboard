@@ -42,21 +42,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pr-0u-Xkx">
-                                            <rect key="frame" x="14" y="12" width="43" height="19.5"/>
+                                            <rect key="frame" x="18" y="12" width="43" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6o-u5-ejm">
-                                            <rect key="frame" x="356" y="11.5" width="42" height="21"/>
+                                            <rect key="frame" x="308" y="11.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="k6o-u5-ejm" secondAttribute="trailing" constant="16" id="Jz9-0x-VxA"/>
-                                        <constraint firstItem="7pr-0u-Xkx" firstAttribute="leading" secondItem="B21-Jv-j2l" secondAttribute="leading" constant="14" id="R9R-xh-W85"/>
+                                        <constraint firstAttribute="trailing" secondItem="k6o-u5-ejm" secondAttribute="trailing" constant="64" id="Jz9-0x-VxA"/>
+                                        <constraint firstItem="7pr-0u-Xkx" firstAttribute="leading" secondItem="B21-Jv-j2l" secondAttribute="leading" constant="18" id="R9R-xh-W85"/>
                                         <constraint firstAttribute="bottom" secondItem="7pr-0u-Xkx" secondAttribute="bottom" constant="12" id="dh3-fC-YXp"/>
                                         <constraint firstItem="7pr-0u-Xkx" firstAttribute="top" secondItem="B21-Jv-j2l" secondAttribute="top" constant="12" id="gX3-Zg-aRO"/>
                                         <constraint firstItem="k6o-u5-ejm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7pr-0u-Xkx" secondAttribute="trailing" constant="12" id="qhu-Pa-SvT"/>
