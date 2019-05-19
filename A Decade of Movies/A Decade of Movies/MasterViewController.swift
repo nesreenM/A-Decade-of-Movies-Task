@@ -50,6 +50,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
         let movie = moviesTableViewModel.fetchedResultsController.object(at: indexPath)
+        cell.movieName.text = movie.title
+        cell.movieRating.text = movie.rating.description
         return cell
     }
 }
