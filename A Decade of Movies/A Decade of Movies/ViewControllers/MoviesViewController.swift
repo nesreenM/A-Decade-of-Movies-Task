@@ -43,6 +43,14 @@ class MoviesViewController: UITableViewController, NSFetchedResultsControllerDel
     func setSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = UIColor.blue
+            if let backgroundview = textfield.subviews.first {
+                backgroundview.backgroundColor = UIColor.white
+                backgroundview.layer.cornerRadius = 10
+                backgroundview.clipsToBounds = true
+            }
+        }
         searchController.searchBar.placeholder = "Search Movie"
         searchController.searchBar.delegate = self
         if #available(iOS 11.0, *) {
