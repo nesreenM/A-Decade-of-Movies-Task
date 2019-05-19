@@ -44,7 +44,7 @@ extension UIView {
 
 extension UIImageView {
     
-    func setImage(url: String, placeHolderImageName: String) {
+    func setImage(url: String) {
         
         if let image = PhotosManager.shared.cachedImage(for: url) {
             DispatchQueue.main.async {

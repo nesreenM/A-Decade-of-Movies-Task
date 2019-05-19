@@ -12,9 +12,17 @@ class MoviePictureCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var moviePicture: UIImageView!
     
+    override func awakeFromNib() {
+        bindData()
+    }
+    
     override func prepareForReuse() {
         DispatchQueue.main.async {
             self.moviePicture.image = nil
         }
+    }
+    
+    func bindData() {
+        moviePicture.setImage(url: "")
     }
 }
