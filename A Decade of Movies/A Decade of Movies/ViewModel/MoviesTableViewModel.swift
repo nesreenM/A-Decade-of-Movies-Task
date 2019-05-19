@@ -63,6 +63,7 @@ struct MoviesTableViewModel {
     
     mutating func searchMovie(withName: String, completion: (_ isSuccess: Bool) -> Void) {
         fetchedResultsController.fetchRequest.predicate = NSPredicate(format:  "title MATCHES[cd] '(\(withName)).*'")
+        fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false), NSSortDescriptor(key: "rating", ascending: false)]
         do {
             try fetchedResultsController.performFetch()
             completion(true)
@@ -75,6 +76,7 @@ struct MoviesTableViewModel {
     
     mutating func fetchMovies(completion: (_ isSuccess: Bool) -> Void){
         fetchedResultsController.fetchRequest.predicate = nil
+        fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false), NSSortDescriptor(key: "title", ascending: true)]
         do {
             try fetchedResultsController.performFetch()
             completion(true)
