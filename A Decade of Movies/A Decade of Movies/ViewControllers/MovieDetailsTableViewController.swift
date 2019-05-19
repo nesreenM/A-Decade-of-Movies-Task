@@ -19,9 +19,9 @@ class MovieDetailsTableViewController: UITableViewController {
     var movieDetailsViewModel: MovieDetailsViewModel!
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 10.0,
-                                             left: 10.0,
+                                             left: 15.0,
                                              bottom: 10.0,
-                                             right: 10.0)
+                                             right: 15.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
