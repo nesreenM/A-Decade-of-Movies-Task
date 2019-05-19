@@ -48,7 +48,8 @@ class MovieDetailsTableViewController: UITableViewController {
             if isSuccess {
                 DispatchQueue.main.async {
                     self.picturesCollectionView.reloadData()
-                    self.tableView.reloadData()
+                    self.tableView.beginUpdates()
+                    self.tableView.endUpdates()
                 }
             }
         }
@@ -57,7 +58,7 @@ class MovieDetailsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
             let photosCount = movieDetailsViewModel.flickrPhotos?.photos?.photo?.count ?? 0
-            return CGFloat(100 * photosCount / 2 + 10 * photosCount / 2) + 20
+            return CGFloat((100 * (photosCount / 2)) + (10 * (photosCount / 2)) + 20)
         }
         if indexPath.row == 1 && movieDetailsViewModel.listingCast() == "" {
             return CGFloat.leastNormalMagnitude
