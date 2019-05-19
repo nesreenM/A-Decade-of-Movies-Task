@@ -13,7 +13,6 @@ import CoreData
 
 class A_Decade_of_MoviesTests: XCTestCase {
     
-    var movie: Movie!
     var mockMovieDetailsViewModel: MovieDetailsViewModel!
     
     override func setUp() {
@@ -35,7 +34,6 @@ class A_Decade_of_MoviesTests: XCTestCase {
     }
 
     override func tearDown() {
-        movie = nil
         mockMovieDetailsViewModel = nil
     }
 
