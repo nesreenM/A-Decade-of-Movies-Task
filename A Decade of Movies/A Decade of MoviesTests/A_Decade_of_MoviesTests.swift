@@ -24,6 +24,12 @@ class A_Decade_of_MoviesTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testLoadingJsonFile() {
+        let mockMoviesTableViewModel = MoviesTableViewModel()
+        let mockMovie = mockMoviesTableViewModel.loadJsonFile(fileName: "movies")
+        XCTAssertNotNil(mockMovie, "Json file doesn't exist")
+    }
+
     func testSearchMovies(movieName: String) {
         var moviesTableViewModel = MoviesTableViewModel()
         moviesTableViewModel.searchMovie(withName: movieName, completion: nil)
