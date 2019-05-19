@@ -48,7 +48,7 @@ class MoviesViewController: UITableViewController, NSFetchedResultsControllerDel
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
         } else {
-            // Fallback on earlier versions
+            tableView.tableHeaderView = searchController.searchBar
         }
         definesPresentationContext = true
     }

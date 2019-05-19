@@ -28,7 +28,18 @@
 		E348C12A2290EEB000DA60FF /* FlickrPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348C1292290EEB000DA60FF /* FlickrPhotos.swift */; };
 		E348C12C2290EEF900DA60FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348C12B2290EEF900DA60FF /* Extensions.swift */; };
 		E348C12E2290EF5700DA60FF /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348C12D2290EF5700DA60FF /* PhotosManager.swift */; };
+		E348C137229168F900DA60FF /* A_Decade_of_MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348C136229168F900DA60FF /* A_Decade_of_MoviesTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E348C139229168F900DA60FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E312D7782290C14900C6FB0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E312D77F2290C14900C6FB0B;
+			remoteInfo = "A Decade of Movies";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		02E3B5B1FD09ADDE1C6F6647 /* Pods-A Decade of Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Decade of Movies.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Decade of Movies/Pods-A Decade of Movies.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +67,9 @@
 		E348C1292290EEB000DA60FF /* FlickrPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotos.swift; sourceTree = "<group>"; };
 		E348C12B2290EEF900DA60FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E348C12D2290EF5700DA60FF /* PhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
+		E348C134229168F900DA60FF /* A Decade of MoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A Decade of MoviesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E348C136229168F900DA60FF /* A_Decade_of_MoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Decade_of_MoviesTests.swift; sourceTree = "<group>"; };
+		E348C138229168F900DA60FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +78,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B847A6AA8B61A734810E8D8 /* Pods_A_Decade_of_Movies.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E348C131229168F900DA60FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +113,7 @@
 			children = (
 				E348C1172290D4D400DA60FF /* movies.json */,
 				E312D7822290C14900C6FB0B /* A Decade of Movies */,
+				E348C135229168F900DA60FF /* A Decade of MoviesTests */,
 				E312D7812290C14900C6FB0B /* Products */,
 				D9D4C1CE90D69483EDF895CB /* Pods */,
 				936CF94531DE0330268F1102 /* Frameworks */,
@@ -102,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E312D7802290C14900C6FB0B /* A Decade of Movies.app */,
+				E348C134229168F900DA60FF /* A Decade of MoviesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,6 +212,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		E348C135229168F900DA60FF /* A Decade of MoviesTests */ = {
+			isa = PBXGroup;
+			children = (
+				E348C136229168F900DA60FF /* A_Decade_of_MoviesTests.swift */,
+				E348C138229168F900DA60FF /* Info.plist */,
+			);
+			path = "A Decade of MoviesTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,6 +243,24 @@
 			productReference = E312D7802290C14900C6FB0B /* A Decade of Movies.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E348C133229168F900DA60FF /* A Decade of MoviesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E348C13D229168F900DA60FF /* Build configuration list for PBXNativeTarget "A Decade of MoviesTests" */;
+			buildPhases = (
+				E348C130229168F900DA60FF /* Sources */,
+				E348C131229168F900DA60FF /* Frameworks */,
+				E348C132229168F900DA60FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E348C13A229168F900DA60FF /* PBXTargetDependency */,
+			);
+			name = "A Decade of MoviesTests";
+			productName = "A Decade of MoviesTests";
+			productReference = E348C134229168F900DA60FF /* A Decade of MoviesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,6 +273,10 @@
 				TargetAttributes = {
 					E312D77F2290C14900C6FB0B = {
 						CreatedOnToolsVersion = 10.2;
+					};
+					E348C133229168F900DA60FF = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = E312D77F2290C14900C6FB0B;
 					};
 				};
 			};
@@ -240,6 +294,7 @@
 			projectRoot = "";
 			targets = (
 				E312D77F2290C14900C6FB0B /* A Decade of Movies */,
+				E348C133229168F900DA60FF /* A Decade of MoviesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,6 +308,13 @@
 				E312D7902290C14B00C6FB0B /* Assets.xcassets in Resources */,
 				E348C1182290D4D400DA60FF /* movies.json in Resources */,
 				E312D78E2290C14A00C6FB0B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E348C132229168F900DA60FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +385,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E348C130229168F900DA60FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E348C137229168F900DA60FF /* A_Decade_of_MoviesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E348C13A229168F900DA60FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E312D77F2290C14900C6FB0B /* A Decade of Movies */;
+			targetProxy = E348C139229168F900DA60FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E312D78C2290C14A00C6FB0B /* Main.storyboard */ = {
@@ -501,6 +579,46 @@
 			};
 			name = Release;
 		};
+		E348C13B229168F900DA60FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZUGQUHK8J8;
+				INFOPLIST_FILE = "A Decade of MoviesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swvl.A-Decade-of-MoviesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Decade of Movies.app/A Decade of Movies";
+			};
+			name = Debug;
+		};
+		E348C13C229168F900DA60FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZUGQUHK8J8;
+				INFOPLIST_FILE = "A Decade of MoviesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swvl.A-Decade-of-MoviesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Decade of Movies.app/A Decade of Movies";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -518,6 +636,15 @@
 			buildConfigurations = (
 				E312D7982290C14B00C6FB0B /* Debug */,
 				E312D7992290C14B00C6FB0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E348C13D229168F900DA60FF /* Build configuration list for PBXNativeTarget "A Decade of MoviesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E348C13B229168F900DA60FF /* Debug */,
+				E348C13C229168F900DA60FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
