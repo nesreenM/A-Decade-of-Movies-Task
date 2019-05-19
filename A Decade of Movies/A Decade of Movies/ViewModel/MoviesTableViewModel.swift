@@ -61,15 +61,15 @@ struct MoviesTableViewModel {
         return false
     }
     
-    mutating func searchMovie(withName: String, completion: (_ isSuccess: Bool) -> Void) {
+    mutating func searchMovie(withName: String, completion: ((_ isSuccess: Bool) -> Void)?) {
         fetchedResultsController.fetchRequest.predicate = NSPredicate(format:  "title MATCHES[cd] '(\(withName)).*'")
         fetchedResultsController.fetchRequest.sortDescriptors = [NSSortDescriptor(key: "year", ascending: false), NSSortDescriptor(key: "rating", ascending: false)]
         do {
             try fetchedResultsController.performFetch()
-            completion(true)
+            completion?(true)
         } catch let error as NSError {
             print("Unresolved error \(error)")
-            completion(false)
+            completion?(false)
             abort()
         }
     }
