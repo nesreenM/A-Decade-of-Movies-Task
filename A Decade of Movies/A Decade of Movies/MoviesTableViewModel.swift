@@ -44,7 +44,8 @@ struct MoviesTableViewModel {
             movie.setValue(savedMovie?.title, forKeyPath: "title")
             movie.setValue(savedMovie?.rating, forKeyPath: "rating")
             movie.setValue(savedMovie?.year, forKeyPath: "year")
-            
+            movie.setValue(savedMovie?.cast, forKey: "cast")
+            movie.setValue(savedMovie?.genre, forKey: "genre")
             do {
                 try managedContext.save()
             } catch let error as NSError {
@@ -60,24 +61,26 @@ struct MoviesTableViewModel {
         return false
     }
     
-    mutating func searchMovie(withName: String) {
+    mutating func searchMovie(withName: String, completion: (_ isSuccess: Bool) -> Void) {
         fetchedResultsController.fetchRequest.predicate = NSPredicate(format:  "title MATCHES[cd] '(\(withName)).*'")
         do {
             try fetchedResultsController.performFetch()
-//            tableView.reloadData()
+            completion(true)
         } catch let error as NSError {
             print("Unresolved error \(error)")
+            completion(false)
             abort()
         }
     }
     
-    mutating func fetchMovies(){
+    mutating func fetchMovies(completion: (_ isSuccess: Bool) -> Void){
         fetchedResultsController.fetchRequest.predicate = nil
         do {
             try fetchedResultsController.performFetch()
-//            tableView.reloadData()
+            completion(true)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
+            completion(false)
             abort()
         }
     }

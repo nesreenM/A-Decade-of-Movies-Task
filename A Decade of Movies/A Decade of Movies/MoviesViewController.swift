@@ -9,23 +9,35 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MoviesViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
     var isFiltering = false
-   var moviesTableViewModel = MoviesTableViewModel()
-    
+    var moviesTableViewModel = MoviesTableViewModel()
+    typealias FetchingCompletion = (Bool) -> Void
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setSearchController()
-        moviesTableViewModel.fetchMovies()
+        moviesTableViewModel.fetchMovies(completion: fetchMoviesCompletion())
         if moviesTableViewModel.entityIsEmpty() {
             let  movies = moviesTableViewModel.loadJsonFile(fileName: "movies")
             for movie in movies?.movies ?? [] {
                 moviesTableViewModel.save(savedMovie: movie)
             }
-            moviesTableViewModel.fetchMovies()
+            moviesTableViewModel.fetchMovies(completion: fetchMoviesCompletion())
         }
+    }
+    
+    func fetchMoviesCompletion() -> FetchingCompletion {
+        let completionHandler: FetchingCompletion = { isSuccess in
+            if isSuccess {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        return completionHandler
     }
 
     func setSearchController() {
@@ -36,10 +48,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
+  
     // MARK: - Table View
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return moviesTableViewModel.fetchedResultsController.sections?.count ?? 0
+        return moviesTableViewModel.fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,16 +74,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 }
 
-extension MasterViewController: UISearchBarDelegate, UISearchResultsUpdating {
+extension MoviesViewController: UISearchBarDelegate, UISearchResultsUpdating {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isFiltering = false
-        moviesTableViewModel.fetchMovies()
+        moviesTableViewModel.fetchMovies(completion: fetchMoviesCompletion())
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchtext = searchController.searchBar.text, searchtext.count > 0 {
             isFiltering = true
-            moviesTableViewModel.searchMovie(withName: searchtext)
+            moviesTableViewModel.searchMovie(withName: searchtext, completion: fetchMoviesCompletion())
         }
     }
 }
