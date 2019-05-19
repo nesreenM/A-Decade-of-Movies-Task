@@ -20,7 +20,7 @@ class MovieDetailsViewModel {
     func listingCast() -> String {
         var castList = ""
         for cast in movie.cast ?? [] {
-            castList = "\u{2022} \(cast) \n"
+            castList += "\u{2022} \(cast) \n"
         }
         return castList
     }
@@ -28,7 +28,7 @@ class MovieDetailsViewModel {
     func listingGenre() -> String {
         var genreList = ""
         for genre in movie.genres ?? [] {
-            genreList = "\u{2022} \(genre) \n"
+            genreList += "\u{2022} \(genre) \n"
         }
         return genreList
     }
