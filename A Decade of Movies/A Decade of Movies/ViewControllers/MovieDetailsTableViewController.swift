@@ -53,6 +53,14 @@ class MovieDetailsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
+            let photosCount = movieDetailsViewModel.flickrPhotos?.photos?.photo?.count ?? 0
+            return CGFloat(100 * photosCount)
+        }
+        return UITableView.automaticDimension
+    }
+    
 }
 
 extension MovieDetailsTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -63,6 +71,9 @@ extension MovieDetailsTableViewController: UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviePictureCell", for: indexPath) as! MoviePictureCollectionViewCell
+        if let photo = movieDetailsViewModel.flickrPhotos?.photos?.photo?[indexPath.row] {
+            cell.moviePictureCellViewModel = MoviePictureCellViewModel(photo: photo)
+        }
         return cell
     }
     
@@ -74,7 +85,7 @@ extension MovieDetailsTableViewController: UICollectionViewDelegate, UICollectio
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: 100)
     }
     
     //3

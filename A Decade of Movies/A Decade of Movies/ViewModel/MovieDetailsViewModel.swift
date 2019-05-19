@@ -34,8 +34,13 @@ class MovieDetailsViewModel {
     }
     
     func getFlickerImages(movieName: String, completion: @escaping (_ isSuccess: Bool) -> Void) {
-        let queryParameter = ["text" : movieName]
-        NetworkRequests.shared.get(baseUrl: "api.flickr.com", urlString: "/services/rest/?method=flickr.photos.search&api_key=ec2825280176da1fa263c72494302074&format=json&nojsoncallback=1", headers: [:], urlParameter: nil, queryParameters: queryParameter) {(_, response: Result <FlickrPhotos, ErrorObject>) in
+        var queryParameter = ["text" : movieName]
+       queryParameter["format"] = "json"
+        queryParameter["api_key"] = "ec2825280176da1fa263c72494302074"
+        queryParameter["method"] = "flickr.photos.search"
+        queryParameter["nojsoncallback"] = "1"
+
+        NetworkRequests.shared.get(baseUrl: "api.flickr.com", urlString: "/services/rest/", headers: [:], urlParameter: nil, queryParameters: queryParameter) {(_, response: Result <FlickrPhotos, ErrorObject>) in
             switch response {
             case .success(let result):
                 self.flickrPhotos = result
