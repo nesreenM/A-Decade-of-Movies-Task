@@ -28,6 +28,7 @@ class MovieDetailsTableViewController: UITableViewController {
         self.tableView.tableFooterView = UIView(frame: .zero)
         setupCollectionView()
         bindData()
+        fetchPhotos()
     }
     
     func bindData() {
@@ -42,12 +43,22 @@ class MovieDetailsTableViewController: UITableViewController {
         picturesCollectionView.delegate = self
     }
     
+    func fetchPhotos() {
+        movieDetailsViewModel.getFlickerImages(movieName: movieDetailsViewModel.movie.title ?? "") { (isSuccess) in
+            if isSuccess {
+                DispatchQueue.main.async {
+                    self.picturesCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
 }
 
 extension MovieDetailsTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return movieDetailsViewModel.flickrPhotos?.photos?.photo?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

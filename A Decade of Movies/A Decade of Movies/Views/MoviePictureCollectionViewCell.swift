@@ -12,8 +12,10 @@ class MoviePictureCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var moviePicture: UIImageView!
     
-    override func awakeFromNib() {
-        bindData()
+    var moviePictureCellViewModel: MoviePictureCellViewModel! {
+        didSet {
+            bindData()
+        }
     }
     
     override func prepareForReuse() {
@@ -23,6 +25,11 @@ class MoviePictureCollectionViewCell: UICollectionViewCell {
     }
     
     func bindData() {
-        moviePicture.setImage(url: "")
+        let farm = moviePictureCellViewModel.photo.farm ?? 0
+        let server = moviePictureCellViewModel.photo.server ?? ""
+        let id = moviePictureCellViewModel.photo.id ?? ""
+        let secret = moviePictureCellViewModel.photo.secret ?? ""
+        let url = "http://farm​\(farm)​.static.flickr.com/​\(server)​/​\(id)_​\(secret)​.jpg"
+        moviePicture.setImage(url: url)
     }
 }
