@@ -17,10 +17,16 @@ class MovieDetailsTableViewController: UITableViewController {
     @IBOutlet weak var picturesCollectionView: UICollectionView!
     
     var movieDetailsViewModel: MovieDetailsViewModel!
+    private let itemsPerRow: CGFloat = 2
+    private let sectionInsets = UIEdgeInsets(top: 10.0,
+                                             left: 10.0,
+                                             bottom: 10.0,
+                                             right: 10.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: .zero)
+        setupCollectionView()
         bindData()
     }
     
@@ -29,6 +35,49 @@ class MovieDetailsTableViewController: UITableViewController {
         movieTitle.text = movieDetailsViewModel.movie.title
         cast.text = movieDetailsViewModel.listingCast()
         genre.text = movieDetailsViewModel.listingGenre()
+    }
+    
+    func setupCollectionView() {
+        picturesCollectionView.dataSource = self
+        picturesCollectionView.delegate = self
+    }
+    
+}
+
+extension MovieDetailsTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+   
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviePictureCell", for: indexPath) as! MoviePictureCollectionViewCell
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //2
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    //3
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    // 4
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
     }
     
 }
