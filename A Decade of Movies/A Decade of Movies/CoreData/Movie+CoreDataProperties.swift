@@ -21,7 +21,7 @@ extension Movie {
     @NSManaged public var year: Int16
     @NSManaged public var rating: Double
     @NSManaged public var cast: [String]?
-    @NSManaged public var genre: [String]?
+    @NSManaged public var genres: [String]?
 
 
 }

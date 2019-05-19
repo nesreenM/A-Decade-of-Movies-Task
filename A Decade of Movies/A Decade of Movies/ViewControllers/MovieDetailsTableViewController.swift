@@ -24,8 +24,10 @@ class MovieDetailsTableViewController: UITableViewController {
     }
     
     func bindData() {
-        self.movieYear.text = movieDetailsViewModel.movie.year.description
-        self.movieTitle.text = movieDetailsViewModel.movie.title
+        movieYear.text = movieDetailsViewModel.movie.year.description
+        movieTitle.text = movieDetailsViewModel.movie.title
+        cast.text = movieDetailsViewModel.listingCast()
+        genre.text = movieDetailsViewModel.listingGenre()
     }
     
 }

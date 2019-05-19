@@ -15,4 +15,20 @@ struct MovieDetailsViewModel {
     init(movie: Movie) {
         self.movie = movie
     }
+    
+    func listingCast() -> String {
+        var castList = ""
+        for cast in movie.cast ?? [] {
+            castList = "\u{2022} \(cast) \n"
+        }
+        return castList
+    }
+    
+    func listingGenre() -> String {
+        var genreList = ""
+        for genre in movie.genres ?? [] {
+            genreList = "\u{2022} \(genre) \n"
+        }
+        return genreList
+    }
 }

@@ -14,7 +14,7 @@ import CoreData
 public class Movie: NSManagedObject, Decodable {
   
     enum CodingKeys: String, CodingKey {
-        case title, year, rating, cast, genre
+        case title, year, rating, cast, genres
     }
     
     required convenience public init(from decoder: Decoder) throws {
@@ -29,7 +29,7 @@ public class Movie: NSManagedObject, Decodable {
         title = try values.decode(String.self, forKey: .title)
         year = try values.decode(Int16.self, forKey: .year)
         rating = try values.decode(Double.self, forKey: .rating)
-        genre = try values.decode([String].self, forKey: .genre)
+        genres = try values.decode([String].self, forKey: .genres)
         cast = try values.decode([String].self, forKey: .cast)
     }
 }
@@ -40,7 +40,7 @@ extension Movie: Encodable {
         try container.encode(title, forKey: .title)
         try container.encode(year, forKey: .year)
         try container.encode(rating, forKey: .rating)
-        try container.encode(genre, forKey: .genre)
+        try container.encode(genres, forKey: .genres)
         try container.encode(cast, forKey: .cast)
     }
 }

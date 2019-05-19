@@ -45,7 +45,7 @@ struct MoviesTableViewModel {
             movie.setValue(savedMovie?.rating, forKeyPath: "rating")
             movie.setValue(savedMovie?.year, forKeyPath: "year")
             movie.setValue(savedMovie?.cast, forKey: "cast")
-            movie.setValue(savedMovie?.genre, forKey: "genre")
+            movie.setValue(savedMovie?.genres, forKey: "genres")
             do {
                 try managedContext.save()
             } catch let error as NSError {
